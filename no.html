@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Proposal</title>
+    <style>
+        body {
+            background-color: #ffe6f1; /* Soft pink background */
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun font */
+            color: #020000;
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+            text-align: center;
+        }
+
+        .content {
+            background-color: #ffffff; /* White background for content box */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        button {
+            background-color: #d50000;
+            color: white;
+            padding: 15px 35px;
+            font-size: 1.3rem;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #9b0000;
+            transform: scale(1.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #d50000; /* Red color for the title */
+        }
+
+        .message {
+            font-size: 1.8rem;
+            color: #ff3366;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+
+        .response {
+            font-size: 1.8rem;
+            color: #030001;
+            font-weight: bold;
+            margin-top: 30px;
+            display: none; /* Initially hidden */
+        }
+
+        /* Style for the pill-shaped button */
+        .pill-button {
+            background-color: #ff66b2;
+            color: white;
+            padding: 15px 50px;
+            font-size: 1.5rem;
+            border-radius: 50px; /* Makes the button pill-shaped */
+            border: none;
+            text-decoration: none; /* Removes underline */
+            margin-top: 30px;
+            display: none; /* Initially hidden */
+            transition: background-color 0.3s ease;
+        }
+
+        .pill-button:hover {
+            background-color: #ff3385;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <h1>Will you please reconsider?</h1>
+
+        <!-- Initial "No" and "Yes" buttons -->
+        <button id="noButton" onclick="showResponse('no')">No</button>
+        <button id="yesButton" onclick="showResponse('yes')">Yes</button>
+
+        <!-- Hidden Success and Heart Racing Messages -->
+        <div id="noResponse" class="response">
+            💖 You said YES! 💖 We finna have an amazing Valentine's Day babyy! 😘
+        </div>
+        <div id="yesResponse" class="response">
+            You had my heart racing for a moment there! ❤️
+        </div>
+
+        <!-- Pill-shaped button with a link to another website -->
+        <a id="pillButton" class="pill-button" href="./yes.html" target="_blank">Press me beautiful</a>
+    </div>
+
+    <script>
+        // Function to show the correct response based on button clicked
+        function showResponse(response) {
+            // Hide both responses initially
+            document.getElementById('noResponse').style.display = "none";
+            document.getElementById('yesResponse').style.display = "none";
+
+            // Hide the buttons once clicked
+            document.getElementById('noButton').style.display = "none";
+            document.getElementById('yesButton').style.display = "none";
+
+            // Show the corresponding message
+            if (response === 'no') {
+                document.getElementById('noResponse').style.display = "block";
+            } else if (response === 'yes') {
+                document.getElementById('yesResponse').style.display = "block";
+            }
+
+            // Show the pill-shaped button after response is shown
+            document.getElementById('pillButton').style.display = "inline-block";
+        }
+    </script>
+
+</body>
+</html>

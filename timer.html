@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown to Valentine's Day 2025</title>
+    <style>
+        body {
+            background-color: #ffe6f1; /* Light pink background */
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun romantic font */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .countdown {
+            background-color: #ff66b2; /* Bright pink background for the timer */
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            color: white;
+            font-size: 2rem;
+        }
+
+        .countdown h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ffccff; /* Soft pink color for the title */
+        }
+
+        #timer {
+            font-size: 2rem;
+        }
+
+        #timer span {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ffccff; /* Light pink for the countdown values */
+        }
+
+        .heart {
+            color: #ff6666; /* Red hearts */
+            font-size: 3rem;
+            margin-top: 20px;
+        }
+
+        /* Style for heart animation */
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .heart:hover {
+            animation: heartbeat 0.5s infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>❤️ Countdown to Valentine's Day 2025 ❤️</h1>
+
+    <div class="countdown">
+        <h1>Time Until Valentine's Day</h1>
+        <p id="timer">
+            <span id="days">0</span> days
+            <span id="hours">0</span> hours
+            <span id="minutes">0</span> minutes
+            <span id="seconds">0</span> seconds
+        </p>
+        <p class="heart">💖</p>
+    </div>
+
+    <script>
+        // Set the target date (14th February 2025)
+        const targetDate = new Date("February 14, 2025 00:00:00").getTime();
+
+        // Update the countdown every 1 second
+        const countdown = setInterval(function() {
+            // Get the current date and time
+            const now = new Date().getTime();
+
+            // Calculate the time remaining
+            const distance = targetDate - now;
+
+            // Time calculations for days, hours, minutes, and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the results in the HTML
+            document.getElementById("days").textContent = days;
+            document.getElementById("hours").textContent = hours;
+            document.getElementById("minutes").textContent = minutes;
+            document.getElementById("seconds").textContent = seconds;
+
+            // If the countdown is finished, display a message
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById("timer").textContent = "❤️ It's Valentine's Day! ❤️";
+                document.querySelector(".heart").style.fontSize = "4rem"; // Bigger heart
+                document.querySelector(".heart").textContent = "💘💖"; // Show hearts
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
